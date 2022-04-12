@@ -14,13 +14,14 @@
     </tr>
   </thead>
   <tbody>
+    <% for(p of all_projects){%>
     <tr>
       <th scope="row">1</th>
-      <td>Project Name</td>
-      <td><button type="button" class="btn btn-info"><a href="/project/createProject">Edit <i class="fa-solid fa-pen-to-square"></i></a></button></td>
-      <td><button type="button" class="btn btn-danger"><a href="/project/createProject">Delete <i class="fa-solid fa-pen-to-square"></i></a></button></td>
+      <td> <%= p.projectName %> </td>
+      <td><button type="button" class="btn btn-info"><a href="/project/update_project">Edit &nbsp; <i class="fa-solid fa-pen-to-square"></i></a></button></td>
+      <td><button type="button" class="btn btn-danger"><a href="/project/destroy/<%= p.id%>">Delete &nbsp;<i class="fa-solid fa-trash"></i></a></button></td>
     </tr>
-   
+    <% } %>
   </tbody>
       </table>
 </div>

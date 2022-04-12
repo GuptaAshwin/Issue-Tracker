@@ -5,9 +5,9 @@ const projectSchema = new mongoose.Schema(
         projectName: {
             type: String,
             required: true
-        }, authorName: {
+        }, author: {
             type: String,
-            requied: true
+            required: true
         },
         description: {
             type: String,
@@ -18,5 +18,5 @@ const projectSchema = new mongoose.Schema(
     }
 )
 
-const projectList = mongoose.model("ProjectList", projectSchema);
+const projectList = mongoose.model("projectList", projectSchema);
 module.exports = projectList;
