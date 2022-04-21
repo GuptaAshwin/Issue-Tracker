@@ -1,7 +1,5 @@
-<h1>Create an Issue for the Project Title</h1>
-<h3>
-    <%= data.projectName %>
-</h3>
+<h1>Create an Issue for the Project </h1>
+
 
 <form action="/issue/create" method="post">
     <div class="mb-3">
@@ -13,7 +11,7 @@
         <textarea class="form-control" id="desc" rows="3"></textarea>
     </div>
     <select class="form-select" aria-label="Default select example" id="selectBox" onchange="selectlabel()">
-        <option selected>Open this select menu</option>
+        <option selected>Compilation Error</option>
         <option value="1">Reference Error</option>
         <option value="2">Syntax Error</option>
         <option value="3">Type Error</option>

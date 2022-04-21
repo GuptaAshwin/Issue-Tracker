@@ -42,12 +42,14 @@ module.exports.destroy = function (req, res) {
     });
 }
 
+// rendering to update project page
 module.exports.updateProjectForm = function(req, res){
     return res.render("update_project", {
         title: "Issue Tracker : Upadate Project"
     });
 }
 
+// updating the project details
 module.exports.update = function (req, res) {
     projectList.findByIdAndUpdate(req.params.id, {$set:req.body}, function (err, project) {
         if (err) {
@@ -59,3 +61,6 @@ module.exports.update = function (req, res) {
 
     });
 }
+
+
+

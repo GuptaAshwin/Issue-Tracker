@@ -11,4 +11,7 @@ router.get('/destroy/:id',  projectController.destroy );
 router.get("/update_project" ,  projectController.updateProjectForm );
 router.post('/update/:id',  projectController.update );
 
+
+// router.post('/projectdet/:id',  projectController.update );
+
 module.exports= router;

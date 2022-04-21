@@ -1,25 +1,29 @@
 const mongoose = require('mongoose');
 
-const issueSchema = new mongoose.Schema(
+const IssueSchema = new mongoose.Schema(
     {
         Title: {
             type: String,
             required: true
         }, Desc: {
             type: String,
-            requied: true
+            required: true
         },
-        label: {
+        label: [],
+        
+         author: {
             type: String,
             required: true
-        }, author: {
-            type: String,
-            required: true
+        },
+        projectRef: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "projectList",
+          required: true,
         }
     },{
         timestamps:true
     }
 )
 
-const issueList = mongoose.model("issueList", issueSchema);
-module.exports = issueList;
+const issueSchema = mongoose.model("issueSchema", IssueSchema);
+module.exports = issueSchema;
