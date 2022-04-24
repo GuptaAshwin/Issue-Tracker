@@ -16,7 +16,7 @@
       <% for(p of all_projects){%>
         <tr>
 
-          <td> <a href="/issue/project_detail">
+          <td> <a href="/issue/project_detail/<%= p.id %>">
               <%= p.projectName %>
             </a> </td>
           <td><button type="button" class="btn btn-info"><a href="/project/update_project">Edit &nbsp; <i

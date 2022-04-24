@@ -15,22 +15,22 @@
             </tr>
         </thead>
         <tbody>
+            <th scope="col"><%= project_detail.projectName %></th>
+            <th scope="col"><%= project_detail.description %></th>
+            <th scope="col"><%= project_detail.author %></th>
+
+
+            <th>   
             <% for(list of all_issue){%>
-                <tr>
-                    <td>
-                        <%= list.projectName %>
-                    </td>
-                    <td>
-                        <%= list.Desc %>
-                    </td>
-                    <td>
-                        <%= list.author %>
-                    </td>
-                    <% for(l of label){%>
-                        <%= l.label %>
+               
+                   
+                    <% for(l of list.label){%>
+                       <p> <%= l %> </p>
                             <% }%>
-                </tr>
+                       
+                    
                 <% } %>
+            </th>
         </tbody>
 
     </table>
@@ -38,48 +38,31 @@
 
 <form action="/create/filter" method="post">
 
+<% for(let i of issue){ %>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">Bug</label>
+        <input class="form-check-input" name ="label" type="checkbox" id="inlineCheckbox1" value="<%= i %>">
+        <label class="form-check-label" for="inlineCheckbox1" ><%= i %></label>
     </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Duplicate</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">invalid</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Question</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Help Wanted</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">UI not good</label>
-    </div>
+<%  }  %>
+
 <br>
 <br>
-    <div class="btn-group dropend">
+    <!-- <div class="btn-group dropend">
         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Dropright
         </button>
         <ul class="dropdown-menu">
-          <!-- Dropdown menu links -->
+         
         </ul>
-      </div>
+      </div> -->
 
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Project Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search By Name">
+        <label   for="exampleFormControlInput1" class="form-label">Project Name</label>
+        <input name = "projectName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search By Name">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Project Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        <textarea  name="description" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
       </div>
       <div class="d-grid gap-2">
         <button class="btn btn-primary" type="submit" >Search</button>     

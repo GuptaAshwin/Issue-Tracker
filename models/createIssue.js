@@ -9,7 +9,9 @@ const IssueSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        label: [],
+        label: [
+            {type : String}
+        ],
         
          author: {
             type: String,
@@ -17,8 +19,7 @@ const IssueSchema = new mongoose.Schema(
         },
         projectRef: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "projectList",
-          required: true,
+          ref: "projectList"
         }
     },{
         timestamps:true
