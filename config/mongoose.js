@@ -1,5 +1,10 @@
 const mongoose= require('mongoose');
-mongoose.connect(`mongodb://localhost/issueTracker`);
+const localdb = `mongodb://localhost/issueTracker`;
+const proddb = `mongodb+srv://AshwinGupta:ashwinak@issuetracker.o5fci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const dburl = process.env.DB_URL || localdb ;
+
+mongoose.connect(dburl);
+
 const db = mongoose.connection;
 // error
 db.on("error", console.error.bind(console, "error connecting to db"));
